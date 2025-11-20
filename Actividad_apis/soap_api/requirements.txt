@@ -1,0 +1,5 @@
+spyne
+lxml
+mysql-connector-python
+Flask
+cryptography

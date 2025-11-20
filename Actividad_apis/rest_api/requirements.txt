@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+python-dotenv
+sqlalchemy
+pymysql
+pydantic
+pydantic-settings
+email-validator
+mysql-connector-python
+cryptography

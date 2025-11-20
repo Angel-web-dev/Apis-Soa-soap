@@ -1,0 +1,40 @@
+services:
+
+  rest_api:
+    build: ./rest_api
+    container_name: rest_api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - INIT_DB=true
+    depends_on:
+      - mysql
+
+  soap_api:
+    build: ./soap_api
+    container_name: soap_api
+    ports:
+      - "8001:8001"
+    env_file:
+      - .env
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: encuestas_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
+
+
